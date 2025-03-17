@@ -15,7 +15,7 @@
                 <a href="#" class="active">Home</a>
                 <a href="#">Jobs</a>
                 <a href="#">Companies</a>
-                <a href="#">Career Tips</a>
+                <a href="#" onclick="showSavedJobs()">Saved</a>
                 <a href="#">Contact</a>
             </div>
             <div class="user-menu">
@@ -39,18 +39,20 @@
         <section class="filters">
             <div class="filter-group">
                 <select id="jobType">
-                    <option value="">Job Type</option>
-                    <option value="full_time">Full Time</option>
-                    <option value="part_time">Part Time</option>
+                    <option value="">All Job Types</option>
+                    <option value="full-time">Full Time</option>
+                    <option value="part-time">Part Time</option>
                     <option value="contract">Contract</option>
                     <option value="internship">Internship</option>
+                    <option value="temporary">Temporary</option>
                 </select>
                 <select id="experience">
-                    <option value="">Experience Level</option>
-                    <option value="entry">Entry Level</option>
-                    <option value="mid">Mid Level</option>
-                    <option value="senior">Senior Level</option>
-                    <option value="lead">Lead</option>
+                    <option value="">All Experience Levels</option>
+                    <option value="entry_level">Entry Level</option>
+                    <option value="mid_level">Mid Level</option>
+                    <option value="senior_level">Senior Level</option>
+                    <option value="management">Management</option>
+                    <option value="executive">Executive</option>
                 </select>
             </div>
         </section>

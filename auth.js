@@ -1,3 +1,4 @@
+
 // Function to toggle between login and register forms
 function toggleForm(formType) {
     const loginForm = document.getElementById('loginForm');
@@ -22,13 +23,21 @@ function toggleForm(formType) {
 function loadUsers() {
     const users = localStorage.getItem('users');
     if (!users) {
-        // Add default user if no users exist
-        const defaultUsers = [{
-            name: "Darshan",
-            email: "darshan@gmail.com",
-            password: btoa("darshan@123"), // Basic encoding
-            createdAt: new Date().toISOString()
-        }];
+        // Add default users if no users exist
+        const defaultUsers = [
+            {
+                name: "Darshan",
+                email: "darshan@gmail.com",
+                password: btoa("darshan@123"),
+                createdAt: new Date().toISOString()
+            },
+            {
+                name: "KodNest",
+                email: "kodnest@gmail.com",
+                password: btoa("kodnest@123"),
+                createdAt: new Date().toISOString()
+            }
+        ];
         localStorage.setItem('users', JSON.stringify(defaultUsers));
         return defaultUsers;
     }
@@ -56,17 +65,15 @@ function handleRegister(event) {
 
     const users = loadUsers();
     
-    // Check if user already exists
     if (users.some(user => user.email === email)) {
         alert('User already exists with this email!');
         return;
     }
 
-    // Add new user
     users.push({
         name,
         email,
-        password: btoa(password), // Basic encoding (not secure for production)
+        password: btoa(password),
         createdAt: new Date().toISOString()
     });
 
@@ -84,40 +91,24 @@ function handleLogin(event) {
     const password = document.getElementById('loginPassword').value;
     const users = loadUsers();
 
-    console.log('Attempting login with:', { email, password });
-    console.log('Available users:', users);
-
     const user = users.find(u => u.email === email && btoa(password) === u.password);
 
     if (user) {
-        console.log('Login successful for user:', user.name);
-        // Save login state
         localStorage.setItem('currentUser', JSON.stringify({
             name: user.name,
             email: user.email,
             loginTime: new Date().toISOString()
         }));
-
-        // Try to redirect to jobs page
-        try {
-            console.log('Attempting to redirect to jobs.html');
-            window.location.replace('jobs.html');
-        } catch (error) {
-            console.error('Redirect error:', error);
-            alert('Error redirecting to jobs page. Please try again.');
-        }
+        window.location.href = 'jobs.html';
     } else {
-        console.log('Login failed - Invalid credentials');
-        alert('Invalid email or password!');
+        alert('Invalid email or password!\nTry: kodnest@gmail.com / kodnest@123\nOr: darshan@gmail.com / darshan@123');
     }
 }
 
 // Check if user is already logged in
 document.addEventListener('DOMContentLoaded', function() {
     const currentUser = localStorage.getItem('currentUser');
-    console.log('Checking current user:', currentUser);
     if (currentUser && window.location.pathname.endsWith('index.html')) {
-        console.log('User already logged in, redirecting to jobs.html');
         window.location.replace('jobs.html');
     }
-}); 
+});
