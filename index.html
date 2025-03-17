@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KodJobs - Your Career Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="platform-info">
+                <h1>How Our<br>Platform Works</h1>
+                <p>Finding your next career opportunity has never been easier.<br>Our platform is designed to streamline the job search process.</p>
+                
+                <div class="auth-options">
+                    <button class="toggle-btn active" onclick="toggleForm('login')">Login</button>
+                    <button class="toggle-btn" onclick="toggleForm('register')">Register</button>
+                </div>
+
+                <div class="form-container">
+                    <!-- Login Form -->
+                    <form id="loginForm" class="active" onsubmit="handleLogin(event)">
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="loginEmail" placeholder="Email" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="loginPassword" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Login</button>
+                    </form>
+
+                    <!-- Register Form -->
+                    <form id="registerForm" onsubmit="handleRegister(event)">
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="registerName" placeholder="Full Name" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="registerEmail" placeholder="Email" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="registerPassword" placeholder="Password" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <img src="laptop-image.jpg" alt="Platform Demo">
+            <div class="company-logos">
+                <img src="https://1000logos.net/wp-content/uploads/2017/08/Airbnb-Logo.png" alt="Airbnb">
+                <img src="https://1000logos.net/wp-content/uploads/2020/08/Microsoft-Logo.png" alt="Microsoft">
+                <img src="https://1000logos.net/wp-content/uploads/2017/08/Spotify-Logo.png" alt="Spotify">
+                <img src="https://1000logos.net/wp-content/uploads/2021/04/GoDaddy-logo.png" alt="GoDaddy">
+                <img src="https://1000logos.net/wp-content/uploads/2017/07/Dropbox-Logo.png" alt="Dropbox">
+            </div>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html> 

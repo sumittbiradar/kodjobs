@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KodJobs - Find Your Dream Job</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">KodJobs</div>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#">Jobs</a>
+                <a href="#">Companies</a>
+                <a href="#">Career Tips</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="user-menu">
+                <span id="userName"></span>
+                <button onclick="handleLogout()" class="logout-btn">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Find Your Dream Job Today</h1>
+            <p>Search through thousands of job opportunities</p>
+            <div class="search-container">
+                <input type="text" id="jobTitle" placeholder="Job title, keywords, or company">
+                <input type="text" id="location" placeholder="Location">
+                <button id="searchBtn">Search Jobs</button>
+            </div>
+        </section>
+
+        <section class="filters">
+            <div class="filter-group">
+                <select id="jobType">
+                    <option value="">Job Type</option>
+                    <option value="full_time">Full Time</option>
+                    <option value="part_time">Part Time</option>
+                    <option value="contract">Contract</option>
+                    <option value="internship">Internship</option>
+                </select>
+                <select id="experience">
+                    <option value="">Experience Level</option>
+                    <option value="entry">Entry Level</option>
+                    <option value="mid">Mid Level</option>
+                    <option value="senior">Senior Level</option>
+                    <option value="lead">Lead</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="job-results">
+            <div id="jobsList"></div>
+            <div id="pagination"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About KodJobs</h3>
+                <p>Your trusted partner in finding the perfect job opportunity.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#">Browse Jobs</a>
+                <a href="#">Post a Job</a>
+                <a href="#">Career Resources</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: support@kodjobs.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 KodJobs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Check if user is logged in
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                window.location.replace('index.html');
+                return;
+            }
+            document.getElementById('userName').textContent = currentUser.name;
+        });
+
+        function handleLogout() {
+            localStorage.removeItem('currentUser');
+            window.location.replace('index.html');
+        }
+    </script>
+</body>
+</html> 
